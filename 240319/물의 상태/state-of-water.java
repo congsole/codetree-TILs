@@ -6,7 +6,7 @@ public class Main {
         int degree = sc.nextInt();
         if(degree < 0) {
             System.out.print("ice");
-        } else if(degree > 100) {
+        } else if(degree >= 100) {
             System.out.print("vapor");
         } else {
             System.out.print("water");
