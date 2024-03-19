@@ -10,6 +10,7 @@ public class Main {
     public static String five(int n) {
         int a = n/10;
         int b = n%10;
-        return (a + b)%5 == 0 ? "Yes" : "No";
+
+        return (a + b)%5 == 0 && n %2==0 ? "Yes" : "No";
     }
 }
