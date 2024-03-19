@@ -8,7 +8,7 @@ public class Main {
         for(int i = 1; i < 5000; i++) {
             n =  n/i;
             cnt++;
-            if(n == 0) {
+            if(n <= 1) {
                 break;
             }
         }
