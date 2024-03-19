@@ -4,8 +4,9 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         
         int i = sc.nextInt();
+        System.out.println(i);
         if(i < 0) {
-            System.out.println(i);
+            
             System.out.print("minus");
         }
         
