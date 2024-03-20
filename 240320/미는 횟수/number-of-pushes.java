@@ -7,14 +7,14 @@ public class Main {
 
         int count = 0;
 
-        while(true) {
-            a = a.substring(1) + a.charAt(0);
+        while(!a.equals(b) && count <= a.length()) {
+            a = a.charAt(a.length()-1) + a.substring(0, a.length()-1) ;
             count++;
-            if(a.equals(b)) {
-                break;
-            }
         }
-
+        if(count > a.length()) {
+            System.out.print(-1);
+        }
+        else
         System.out.print(count);
     }
 }
