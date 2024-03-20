@@ -7,9 +7,12 @@ public class Main {
 
         int count = 0;
 
-        while(!a.equals(b)) {
+        while(true) {
             a = a.substring(1) + a.charAt(0);
             count++;
+            if(a.equals(b)) {
+                break;
+            }
         }
 
         System.out.print(count);
