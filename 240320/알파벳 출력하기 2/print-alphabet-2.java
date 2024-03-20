@@ -10,6 +10,9 @@ public class Main {
                 if(j >= i) {
                     System.out.print((char)x + " ");
                     x++;
+                    if(x>'Z') {
+                        x = 'A';
+                    }
                 } else {
                     System.out.print("  ");
                 }
