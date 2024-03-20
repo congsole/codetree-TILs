@@ -11,7 +11,9 @@ public class Main {
             int idx = a.indexOf(b);
             if(idx > -1) {
                 cnt++;
-                a = a.substring(idx+2);
+                a = a.substring(idx+1);
+                // System.out.println(a);
+                // System.out.println(idx);
             } else {
                 break;
             }
