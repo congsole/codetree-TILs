@@ -6,7 +6,8 @@ public class Main {
 
     public static int max(int n) {
         if(n == 0) return arr[0];
-        return arr[n] > max(n-1) ? arr[n] : max(n-1);
+        int maximum = max(n-1);
+        return arr[n] > maximum ? arr[n] : maximum;
         
     }
     
