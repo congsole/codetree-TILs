@@ -5,10 +5,19 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int[] a = new int[n];
+        for(int i = 0; i < n; i++) {
+            a[i] = sc.nextInt();
+        }
         int[] b = new int[n];
+        for(int i = 0; i < n; i++) {
+            b[i] = sc.nextInt();
+        }
 
-        Arrays.sort(a); Arrays.sort(b);
+        Arrays.sort(a); 
+        Arrays.sort(b);
+        
         String result = "Yes";
+        
         for(int i = 0; i < n; i++) {
             if(a[i] != b[i]) {
                 result = "No";
