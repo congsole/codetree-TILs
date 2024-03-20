@@ -13,10 +13,12 @@ public class Main {
             int n = a % b;
             count[n]++;
             a /= b;
-            if(a == 0) break;
+            if(a <= 1) break;
         }
         int sum = 0;
+        
         for(int c: count) {
+            // System.out.println(c);
             sum += c*c;
         }
 
