@@ -5,6 +5,10 @@ public class Main {
         int a = sc.nextInt(), b = sc.nextInt();
         int[] count = new int[b];
 
+        for(int c: count) {
+            c = 0;
+        }
+
         while(true) {
             int n = a % b;
             count[n]++;
