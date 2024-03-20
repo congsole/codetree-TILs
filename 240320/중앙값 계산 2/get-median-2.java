@@ -6,9 +6,10 @@ public class Main {
         int n = sc.nextInt();
         int[] arr = new int[n];
         for(int i = 0; i < n; i++) {
+
             arr[i] = sc.nextInt();
+            Arrays.sort(arr, 0, i+1);
             if(i % 2 == 0) {
-                Arrays.sort(arr, 0, i);
                 if(i == 0) {
                     System.out.print(arr[0] + " ");
                 } else {
