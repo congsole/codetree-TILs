@@ -2,8 +2,8 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        int[] aAt = new int[1001];
-        int[] bAt = new int[1001];
+        int[] aAt = new int[1000000];
+        int[] bAt = new int[1000000];
 
         int aPoint = 0, bPoint = 0, aTime = 0, bTime = 0;
 
