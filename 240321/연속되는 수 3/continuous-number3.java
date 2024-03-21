@@ -19,9 +19,9 @@ public class Main {
                 count++;
             }
             else {
-                maxCount = Math.max(count, maxCount);
                 count = 1;
             }
+            maxCount = Math.max(count, maxCount);
         } 
         System.out.print(maxCount);
 
