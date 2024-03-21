@@ -45,7 +45,10 @@ public class Main {
                 }
             }
         }
-
+        if(x.isEmpty() || y.isEmpty()) {
+            System.out.print(0);
+            return;
+        }
         int maxX = Collections.max(x);
         int minX = Collections.min(x);
         int maxY = Collections.max(y);
