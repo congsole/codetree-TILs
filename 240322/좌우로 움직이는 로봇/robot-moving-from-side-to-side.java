@@ -5,8 +5,8 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt(), m = sc.nextInt();
 
-        int[] aAt = new int[1000000];
-        int[] bAt = new int[1000000];
+        int[] aAt = new int[1000001];
+        int[] bAt = new int[1000001];
 
         int aTime = 0;
         while(n-- > 0) {
