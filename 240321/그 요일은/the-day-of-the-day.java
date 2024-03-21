@@ -30,9 +30,12 @@ public class Main {
         }
 
         int result = elapsedDays/7;
-        if(elapsedDays % 7 >= Arrays.asList(yoil).indexOf(a)+1) {
+        if(elapsedDays % 7 >= Arrays.asList(yoil).indexOf(a)) {
             result++;
         }
+        // System.out.println(elapsedDays);
+        // System.out.println(elapsedDays % 7);
+        // System.out.println(Arrays.asList(yoil).indexOf(a)+1);
 
         
         System.out.println(result);
