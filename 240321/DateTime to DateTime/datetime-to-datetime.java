@@ -9,6 +9,15 @@ public class Main {
         int hour = 11;
         int min = 11;
         int elapsedMins = 0;
+        
+        if(a <= 11) {
+            if(b <= 11) {
+                if(c < 11) {
+                    System.out.print(-1);
+                    return;
+                }
+            }
+        }
 
         while(true) {
             if(day == a && hour == b && min == c) {
