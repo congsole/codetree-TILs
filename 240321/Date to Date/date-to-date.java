@@ -12,14 +12,14 @@ public class Main {
         int[] daysOfMonth = new int[] {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
         while(true) {
-            if(m == m2 && d == d2+1) {
+            if(m == m2 && d == d2) {
                 break;
             }
 
-            d++;
             elapsedDay++;
+            d++;
 
-            if(d == daysOfMonth[m]) {
+            if(d > daysOfMonth[m]) {
                 d = 1;
                 m++;
             }
