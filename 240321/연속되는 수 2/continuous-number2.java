@@ -15,14 +15,20 @@ public class Main {
         List<Integer> cnt = new ArrayList<>();
 
         for(int i = 0; i < n; i++) {
-            if(i == 0 || arr[i] != arr[i-1]) {
+            if(i == 0) {
+                count = 1;
+            } else if(arr[i] == arr[i-1]){
+                count++;
+                if (i == n-1) {
+                    cnt.add(count);
+                }
+            } else {
                 cnt.add(count);
                 count = 1;
-            } else {
-                count++;
             }
         }
 
         System.out.print(Collections.max(cnt));
+
     }
 }
