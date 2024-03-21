@@ -19,8 +19,8 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        int[] x = new int[100];
-        for(int i=0; i<100; i++) {
+        int[] x = new int[101];
+        for(int i=0; i<101; i++) {
             x[i] = 0;
         }
         
@@ -35,7 +35,7 @@ public class Main {
 
         Arrays.sort(x);
 
-        System.out.print(x[99]);
+        System.out.print(x[100]);
 
 
 
