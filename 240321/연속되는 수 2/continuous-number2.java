@@ -17,6 +17,9 @@ public class Main {
         for(int i = 0; i < n; i++) {
             if(i == 0) {
                 count = 1;
+                if(i == n-1) {
+                    cnt.add(count);
+                }
             } else if(arr[i] == arr[i-1]){
                 count++;
                 if (i == n-1) {
@@ -25,6 +28,9 @@ public class Main {
             } else {
                 cnt.add(count);
                 count = 1;
+                if (i == n-1) {
+                    cnt.add(count);
+                }
             }
         }
 
