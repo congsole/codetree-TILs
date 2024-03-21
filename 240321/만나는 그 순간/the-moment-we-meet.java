@@ -48,13 +48,14 @@ public class Main {
                 bTime += bDeltaT[i];
             }
         }
-        
-        for(int t=1; t<1001; t++) {
+        int togetherTime = -1;
+        for(int t=1; t<bTime; t++) {
             if(aAt[t] == bAt[t]) {
-                System.out.print(t);
+                togetherTime = t;
                 break;
             }
         }
+        System.out.print(togetherTime);
 
     }
 }
