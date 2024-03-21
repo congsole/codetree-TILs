@@ -11,11 +11,14 @@ public class Main {
         int elapsedMins = 0;
         
         if(a <= 11) {
-            if(b <= 11) {
+            if(b == 11) {
                 if(c < 11) {
                     System.out.print(-1);
                     return;
                 }
+            } else if(b<11){
+                System.out.print(-1);
+                    return;   
             }
         }
 
