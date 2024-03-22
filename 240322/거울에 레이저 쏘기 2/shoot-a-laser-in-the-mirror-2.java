@@ -4,7 +4,7 @@ public class Main {
     public static int N, K;
     public static int n, m, dirNum;
     public static void initialize() {
-        int a = K % N == 0 ? 3 : K % N;
+        int a = K % N == 0 ? N : K % N;
 
         if(K <= N) {
             dirNum = 0;
@@ -51,12 +51,12 @@ public class Main {
 
         while(inRange(n,m)) {
             if(grid[n][m] == '/') {
-                dirNum = dirNum ^ 1;
+                dirNum = dirNum^1;
             } else {
                 dirNum = 3 - dirNum; 
             }
             n += dn[dirNum];
-            m += dn[dirNum];              
+            m += dm[dirNum];              
             count++; 
         }
         
