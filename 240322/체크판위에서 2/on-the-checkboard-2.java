@@ -12,6 +12,10 @@ public class Main {
                 arr[i][j] = sc.next().charAt(0);
         
         int count = 0;
+        if(arr[0][0] == arr[r-1][c-1]) {
+            System.out.print(0);
+            return;
+        }
         for(int i=1; i<r-1; i++) {
             for(int j=1; j<c-1; j++) {
                 if(arr[i][j] != arr[0][0]) {
