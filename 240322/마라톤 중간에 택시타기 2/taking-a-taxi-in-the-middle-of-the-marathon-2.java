@@ -25,7 +25,7 @@ public class Main {
             p[i] = new Point(sc.nextInt()+offset, sc.nextInt()+offset);
         }
 
-        int minDistance = 4000;
+        int minDistance = 99999999;
         for(int i=1; i<n-1; i++) {
             int totalDistance = 0;
             for(int j=1; j<n; j++) {
