@@ -14,7 +14,7 @@ public class Main {
         m = sc.nextInt();
         n = sc.nextInt();
    
-        int[][] matrix = new int[n][m];
+        int[][] matrix = new int[m][n];
 
         int[] dy = new int[] {0, 1, 0, -1}; //행
         int[] dx = new int[] {1, 0, -1, 0}; //열
