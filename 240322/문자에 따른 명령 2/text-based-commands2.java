@@ -15,14 +15,15 @@ public class Main {
         for(int i=0; i<command.length(); i++) {
             if(command.charAt(i) == 'R') {
                 dirNum = (dirNum +1) % 4;
-                temp = x;
-                x = y;
-                y = -temp;
+                // temp = x;
+                // x = y;
+                // y = -temp;
             } else if(command.charAt(i) == 'L') {
                 dirNum = (dirNum -1 + 4) % 4;
-                temp = x;
-                x = -y;
-                y = temp;
+                // temp = x;
+                // x = -y;
+                // y = temp;
+                // 원점을 기준으로 회전하는게 아닌 서있는 자리에서 방향전환만 한다.
             } else {
                 x += dx[dirNum];
                 y += dy[dirNum];
