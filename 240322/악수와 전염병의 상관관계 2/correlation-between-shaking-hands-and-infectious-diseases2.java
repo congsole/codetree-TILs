@@ -10,20 +10,21 @@ class Dev {
     }
 
     public void handShake(Dev dev) {
-        if(this.virus == 1 & this.count > 0) {
-            if(dev.virus == 1 & this.count > 0) {
-                dev.count--;
-                this.virus = 1;
-                dev.virus = 1;
-            } else {
+        if(this.virus == 1 && dev.virus == 1) {
+            if(this.count > 0) this.count--;
+            if(dev.count > 0) dev.count--;
+        } else if(this.virus == 1 && dev.virus == 0) {
+            if(this.count > 0) {
+                this.count--;
                 dev.virus = 1;
             }
-            this.count--;
-        } else { // 감염인데 count가 0이거나 비감염인경우.
-            if(dev.virus == 1 & this.count > 0) {
+        } else if(this.virus == 0 && dev.virus == 1) {
+            if(dev.count > 0) {
                 dev.count--;
                 this.virus = 1;
-            } 
+            }
+        } else {
+
         }
     }
 }
@@ -62,6 +63,10 @@ public class Main {
 
         for(int i=0; i<t; i++) {
             dev[cmd[i].x].handShake(dev[cmd[i].y]);
+            // for(int j=1; j<=n; j++) {
+            // System.out.print(dev[j].virus);
+            // }
+            // System.out.println();   
         }
 
         for(int i=1; i<=n; i++) {
