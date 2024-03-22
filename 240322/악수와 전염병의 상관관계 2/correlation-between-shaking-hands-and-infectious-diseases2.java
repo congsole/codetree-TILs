@@ -11,16 +11,18 @@ class Dev {
 
     public void handShake(Dev dev) {
         if(this.virus == 1 & this.count > 0) {
-            if(dev.virus == 1 & this.count >0) {
+            if(dev.virus == 1 & this.count > 0) {
                 dev.count--;
+                this.virus = 1;
+                dev.virus = 1;
             } else {
                 dev.virus = 1;
             }
             this.count--;
         } else { // 감염인데 count가 0이거나 비감염인경우.
-            if(dev.virus == 1 & this.count >0) {
+            if(dev.virus == 1 & this.count > 0) {
                 dev.count--;
-                dev.virus = 1;
+                this.virus = 1;
             } 
         }
     }
