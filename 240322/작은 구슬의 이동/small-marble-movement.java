@@ -25,7 +25,7 @@ public class Main {
         int x = sc.nextInt();
         int dirNum = getDirNum(sc.next().charAt(0));
 
-        int[] dy = new int[] {1, 0, 0, -1}; // 행
+        int[] dy = new int[] {-1, 0, 0, 1}; // 행
         int[] dx = new int[] {0, 1, -1, 0}; // 렬
 
         while(t-- > 0) {
@@ -37,6 +37,7 @@ public class Main {
                 x -= dx[dirNum];
                 dirNum = 3 - dirNum;
             } 
+        // System.out.println();
         }
 
         System.out.printf("%d %d", y, x);
