@@ -10,7 +10,7 @@ public class Main {
             criteria[i] = sc.nextInt();
         }
 
-        int minCount = 999999;
+        int minCount = 999999999;
         for(int i=0; i<n; i++) {
             int count = 0;
             // 이동시키면서 거리 카운팅
