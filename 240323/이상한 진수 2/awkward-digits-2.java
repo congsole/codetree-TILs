@@ -1,28 +1,30 @@
 import java.util.*;
 
 public class Main {
-    
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String binary = sc.next();
-        int[] bi = new int[binary.length()];
-
-        for(int i=0; i<bi.length; i++) {
-            bi[i] = Character.getNumericValue(binary.charAt(i));
+        int[] a = new int[binary.length()];
+        int binaryLength = a.length;
+        for(int i=0; i<a.length; i++) {
+            a[i] = (char)(binary.charAt(i)-'0');
         }
 
-        for(int i=0; i<bi.length; i++) {
-            if(bi[i] == 0) {
-                bi[i] = 1;
-                break;
+        int[][] caseStudy = new int[binaryLength-1][binaryLength];
+        
+        int maxSum = 0;
+
+        for(int i=0; i<binaryLength-1; i++) {
+            int sum = 0;
+            for(int j=0; j<binaryLength; j++) {
+                caseStudy[i][j] = a[j];
+                if(j == i+1) caseStudy[i][j] = a[j] ^ 1;
+                sum = sum * 2 + caseStudy[i][j];
             }
+            maxSum = Math.max(maxSum, sum);    
         }
 
-        int sum = 0;
-        for(int i=0; i<bi.length; i++) {
-            sum = sum * 2 + bi[i];
-        }
-
-        System.out.print(sum);
+        System.out.print(maxSum);
     }
 }
