@@ -29,8 +29,8 @@ public class Main {
                 }
             }
             // (2) 세로
-            for(int j=0; j<MATRIX_SIZE+1-4; j++) {
-                for(int i=0; i<MATRIX_SIZE+1; i++) {
+            for(int j=0; j<MATRIX_SIZE+1; j++) {
+                for(int i=0; i<MATRIX_SIZE+1-4; i++) {
                     if(plane[i][j] == k && plane[i+1][j] == k && plane[i+2][j] == k && plane[i+3][j] == k && plane[i+4][j] == k) {
                         winner = k;
                         System.out.println(winner);
@@ -64,7 +64,7 @@ public class Main {
             k++;
 
         }
-            
+        System.out.print(0);
         
     }
 }
