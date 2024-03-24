@@ -39,8 +39,15 @@ public class Main {
                             }
                         }
                         count = count1 + count2;
+                        int temp = maxCount;
+                        maxCount = Math.max(maxCount, count);
+                        if(temp != maxCount) {
+                        // System.out.printf("%d %d %d %d", i, j, k, l);
+                        // System.out.println();
+                        }
                     }
-                    maxCount = Math.max(maxCount, count);
+                    
+
                 }
             }
         }
