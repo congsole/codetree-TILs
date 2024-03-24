@@ -9,12 +9,12 @@ public class Main {
             arr[i] = sc.nextInt();
         }
         
-        int maxSum = 0;
+        int maxSum = -1;
         for(int i=0; i<n; i++) {
             for(int j=i+1; j<n; j++) {
                 for(int k=j+1; k<n; k++) {
                     boolean carry = false;
-                    
+
                     // 1의 자리에서 carry 발생하는 경우
                     if(arr[i] % 10 + arr[j] % 10 + arr[k] % 10 >= 10) carry=true;
                     // 10의 자리에서 carry 발생하는 경우
