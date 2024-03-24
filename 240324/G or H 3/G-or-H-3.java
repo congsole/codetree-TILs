@@ -13,7 +13,7 @@ public class Main {
 
         int maxSum = 0;
 
-        for(int i=0; i<100-k; i++) {
+        for(int i=0; i<10000-k; i++) {
             int sum = 0;
             for(int j=i; j<=i+k; j++) {
                 sum += arr[j];
