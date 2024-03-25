@@ -27,8 +27,8 @@ public class Main {
             }
         }
 
-        for(int i=0; i<list.size(); i++) {
-            System.out.print(list.get(i));
-        }
+        ListIterator<Character> it2 = list.listIterator();
+        while(it2.hasNext())
+            System.out.print(it2.next());
     }
 }
