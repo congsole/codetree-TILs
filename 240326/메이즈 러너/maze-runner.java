@@ -2,8 +2,8 @@ import java.util.*;
 
 class Runner {
     int n, m;
-    boolean exit;
-    int distance;
+    boolean exit = false;
+    int distance = 0;
     public Runner(int n, int m) {
         this.n = n;
         this.m = m;
@@ -19,11 +19,11 @@ class Exit {
 }
 
 public class Main {
-    public static int[] dn = new int[]{0, 1, 0, -1};
-    public static int[] dm = new int[]{1, 0, -1, 0};
+    public static int[] dn = new int[]{-1, 1, 0, 0};
+    public static int[] dm = new int[]{0, 0, -1, 1};
     public static int N,M,K;
     public static boolean inRange(int n, int m) {
-        return n>=1 && m>=1 && n<=N && m<=M;
+        return n>=1 && m>=1 && n<=N && m<=N;
     }
     public static void main(String[] args) {
         
@@ -33,13 +33,6 @@ public class Main {
         K = sc.nextInt();
         int[][] matrix = new int[N+1][N+1];
         int[][] nextMatrix = new int[N+1][N+1];
-        
-        for(int i=0;i<=N;i++) {
-            for(int j=0;j<=N;j++) {
-                if(i == 0 || j == 0)
-                    matrix[i][j] = 200;
-            }
-        }
 
         for(int i=1;i<=N;i++) {
             for(int j=1;j<=N;j++) {
@@ -58,29 +51,30 @@ public class Main {
 
         int t = 1;
         while(t <= K) {
+            // System.out.println(t);
             // 1초마다 움직인 후 , 움직인 거리 더한후, 회전
         
             for(int i=0; i<M; i++) {
                 if(runners[i].exit) continue;
                 int shortest = Math.abs(exit.n - runners[i].n) + Math.abs(exit.m - runners[i].m);
-                int shortestDirNum = 0;
                 for(int dir=0; dir<4; dir++) {
-                    int distance = 0;
                     int nextN = runners[i].n + dn[dir];
                     int nextM = runners[i].m + dm[dir];
-                    if(inRange(nextN, nextM) && matrix[nextN][nextM] <= 0) {
-                        distance = Math.abs(nextN-exit.n) + Math.abs(nextM-exit.m);
-                        shortest = Math.min(distance, shortest);
-                        if(distance == shortest) shortestDirNum = dir;
+                    int distance = Math.abs(nextN-exit.n) + Math.abs(nextM-exit.m);
+                    if(inRange(nextN, nextM) && matrix[nextN][nextM] < 1 && distance < shortest) {
+                        runners[i].n = nextN;
+                        runners[i].m = nextM;
+                        runners[i].distance++;
+                        if(runners[i].n == exit.n && runners[i].m == exit.m) runners[i].exit = true;
+                        break;
                     }
                 }
-                if(shortest < Math.abs(exit.n - runners[i].n) + Math.abs(exit.m - runners[i].m)) {
-                    runners[i].n += dn[shortestDirNum];
-                    runners[i].m += dm[shortestDirNum];
-                    runners[i].distance++;
-                    if(runners[i].n == exit.n && runners[i].m == exit.m) runners[i].exit = true;
-                }                
             }
+            // System.out.printf("이동후 : ");
+            // for(int k=0; k<M; k++) {
+            //     System.out.printf("(%d, %d)", runners[k].n, runners[k].m);
+            // }
+            // System.out.println();
 
             // 모든 러너가 한 칸 씩 움직인 후에 탈출했는지 체크
             int count = 0;
@@ -142,14 +136,18 @@ public class Main {
             // runner 회전시키기
             for(int i=0; i<M; i++) {
                 int runnerN = runners[i].n, runnerM = runners[i].m;
-                if(runnerN >= rotateN && runnerM >=rotateM && runnerN < rotateN + shortedLength && runnerM < rotateM+shortedLength) {
+                if(!runners[i].exit && runnerN >= rotateN && runnerM >=rotateM && runnerN < rotateN + shortedLength && runnerM < rotateM+shortedLength) {
                     int on = runnerN - rotateN, om = runnerM - rotateM;
                     int rn = om, rm = shortedLength-1-on;
                     runners[i].n = rn + rotateN;
-                    runners[i].m = rm + rotateN;
+                    runners[i].m = rm + rotateM;
                 }
             }
-
+            // System.out.printf("회전후 : ");
+            // for(int k=0; k<M; k++) {
+            //     System.out.printf("(%d, %d)", runners[k].n, runners[k].m);
+            // }
+            // System.out.println();
             // 출구 회전시키기
 
             int on = exit.n - rotateN, om = exit.m - rotateM;
@@ -158,6 +156,7 @@ public class Main {
             exit.m = rm + rotateM;
             
             t++;
+            // System.out.println("회전후 출구 : (" + exit.n + ", " + exit.m + ")");
         }
             
         int count = 0;
