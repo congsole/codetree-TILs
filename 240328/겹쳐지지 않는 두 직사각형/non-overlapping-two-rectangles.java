@@ -63,7 +63,7 @@ public class Main {
 
         for(int y=i; y<i+h; y++) {
             for(int x=j; x<j+w; x++) {
-                if(!inRange(y, x)) {return 0;}
+                if(inRange(y, x))
                 sum += matrix[y][x];
             }
         }
