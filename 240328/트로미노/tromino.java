@@ -40,8 +40,10 @@ public class Main {
         for(int i=0; i<N-1; i++) {
             for(int j=0; j<M-1; j++) {
                 int sumTemp = matrix[i][j] + matrix[i][j+1] + matrix[i+1][j] + matrix[i+1][j+1];
+                // System.out.println(i + " "+ j+ " "+ sumTemp);
                 for(int dir=0; dir<4; dir++) {
-                    int sum = sumTemp - matrix[i+dn[dir]][i+dm[dir]];
+                    int sum = sumTemp - matrix[i+dn[dir]][j+dm[dir]];
+                    // System.out.println("    " + sum);
                     maxSum = Math.max(maxSum, sum);
                 }
             }
