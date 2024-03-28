@@ -18,19 +18,20 @@ public class Main {
         int countN = 0;
         for(int n=0; n<N; n++) {
             int count = 1;
-            for(int m=1; m<N; m++) {
-                if(M == 1) {
-                    countN++;
-                    break;
-                }
-                if(matrix[n][m] == matrix[n][m-1]) {
-                    count++;
-                    if(count == M) {
-                    countN++;
-                    break;
-                }
-                } else {
-                    count = 1;
+            if(M == 1) {
+                countN++;
+            } else {
+                for(int m=1; m<N; m++) {
+
+                    if(matrix[n][m] == matrix[n][m-1]) {
+                        count++;
+                        if(count == M) {
+                        countN++;
+                        break;
+                    }
+                    } else {
+                        count = 1;
+                    }
                 }
             }
         }
@@ -38,19 +39,23 @@ public class Main {
         int countM = 0;
         for(int m=0; m<N; m++) {
             int count = 1;
-            for(int n=1; n<N; n++) {
-                  if(M == 1) {
-                    countM++;
-                    break;
-                }
-                if(matrix[n][m] == matrix[n-1][m]) {
-                    count++;
-                    if(count == M) {
-                    countM++;
-                    break;
-                }
-                } else {
-                    count = 1;
+            if(M == 1) {
+                countM++;
+            } else {
+                for(int n=1; n<N; n++) {
+                    if(M == 1) {
+                        countM++;
+                        break;
+                    }
+                    if(matrix[n][m] == matrix[n-1][m]) {
+                        count++;
+                        if(count == M) {
+                        countM++;
+                        break;
+                    }
+                    } else {
+                        count = 1;
+                    }
                 }
             }
         }
