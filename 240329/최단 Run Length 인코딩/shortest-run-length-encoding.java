@@ -35,7 +35,7 @@ public class Main {
         for(int i=0;i<arr.length;i++) {
             arr[i] = str.charAt(i);
         }
-        int minLength = 20;
+        int minLength = 100000;
         for(int c=0; c<arr.length; c++) {
             rightShift(arr);
             str = runLengthEncoding(arr);
