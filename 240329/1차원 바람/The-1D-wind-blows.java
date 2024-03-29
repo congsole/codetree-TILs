@@ -70,6 +70,8 @@ public class Main {
                 if(findIdenticalNum(row, +1) /*아랫줄이랑 비교하니까*/) {
                     dirNum = dirNum ^ 1;
                     push(row, dirNum);
+                } else {
+                    break;
                 }
             }
             // 아래로 전파
@@ -79,6 +81,8 @@ public class Main {
                 if(findIdenticalNum(row, -1) /*윗줄이랑 비교하니까*/) {
                     dirNum = dirNum ^ 1;
                     push(row, dirNum);
+                } else {
+                    break;
                 }
             }
             
