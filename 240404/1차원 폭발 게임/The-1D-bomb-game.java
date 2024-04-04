@@ -18,11 +18,11 @@ public class Main {
                 count++;
                 if(i==a.length-1 || a[i] != a[i+1]) {
                     endI = i;
-                    if(count >= M) {
-                        bombPop(startI, endI);
-                        pop = true;
-                    }
                 }
+            }
+            if(count >= M) {
+                bombPop(startI, endI);
+                pop = true;
             }
         }
         if(pop) {
