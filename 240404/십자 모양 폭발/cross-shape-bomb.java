@@ -18,6 +18,7 @@ public class Main {
             while(distance <= d) {
                 nextN += dn[dir];
                 nextM += dm[dir];
+                if(inRange(nextN, nextM))
                 matrix[nextN][nextM] = 0;
                 distance++;
             }
