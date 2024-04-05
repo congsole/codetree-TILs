@@ -68,7 +68,7 @@ public class Main {
         Chair[] chair = new Chair[L];
         
         int currT = 1;
-
+        int cmdIndex = 0;
         while(currT <= maxT) {
             // 회전
             Belt temp = belt[L-1];
@@ -78,41 +78,45 @@ public class Main {
             belt[0] = temp;
 
             // 스시 놓기, 앉기, 사진찍기
-            for(int i=0; i<Q; i++) {
-                if(cmd[i].t == currT) {
-                    if(cmd[i].code == 100) {
-                        belt[cmd[i].x].addSushi(cmd[i].name);
-                    } else if(cmd[i].code == 200) {
-                        chair[cmd[i].x] = new Chair(cmd[i].name, cmd[i].eatCount);
-                    } else if(cmd[i].code == 300) {
-                        int peopleSum = 0;
-                        int sushiSum = 0;
-                        for(int x=0; x<L; x++) {
-                            if(chair[x] != null) peopleSum++;
-                            sushiSum += belt[x].list.size();
+
+                if(cmd[cmdIndex].t == currT) {
+                    if(cmd[cmdIndex].code == 100) {
+                        belt[cmd[cmdIndex].x].addSushi(cmd[cmdIndex].name);
+                    } else if(cmd[cmdIndex].code == 200) {
+                        chair[cmd[cmdIndex].x] = new Chair(cmd[cmdIndex].name, cmd[cmdIndex].eatCount);
+                    } 
+                } 
+                for(int x=0; x<L; x++) {
+                    if(chair[x] != null) {
+                        while(true) {
+                            if(belt[x].list.indexOf(chair[x].name) < 0) {
+                                break;
+                            }
+                            belt[x].list.remove(chair[x].name);
+                            chair[x].count--;
                         }
-                        System.out.print(peopleSum + " " + sushiSum);
-                        System.out.println();
-                    }
-                } else {
-                    for(int x=0; x<L; x++) {
-                        if(chair[x] != null) {
-                            while(true) {
-                                if(belt[x].list.indexOf(chair[x].name) < 0) {
-                                    break;
-                                }
-                                belt[x].list.remove(chair[x].name);
-                                chair[x].count--;
-                            }
-                            if(chair[x].count == 0) {
-                                chair[x] = null;
-                            }
+                        if(chair[x].count == 0) {
+                            chair[x] = null;
                         }
                     }
                 }
-            }
+                if(cmd[cmdIndex].t == currT && cmd[cmdIndex].code == 300) {
+
+                    int peopleSum = 0;
+                    int sushiSum = 0;
+                    for(int x=0; x<L; x++) {
+                        if(chair[x] != null) peopleSum++;
+                    sushiSum += belt[x].list.size();
+                    }
+                    System.out.print(peopleSum + " " + sushiSum);
+                    System.out.println();
+
+                }
+                
+            
      
             // 시간 증가
+            if(cmd[cmdIndex].t == currT) {cmdIndex++;}
             currT++;
         }
     }
