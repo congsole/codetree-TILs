@@ -77,8 +77,7 @@ public class Main {
             }
             belt[0] = temp;
 
-            // 스시 놓기, 앉기, 사진찍기
-
+                // 스시 놓기, 앉기
                 if(cmd[cmdIndex].t == currT) {
                     if(cmd[cmdIndex].code == 100) {
                         belt[cmd[cmdIndex].x].addSushi(cmd[cmdIndex].name);
@@ -86,6 +85,7 @@ public class Main {
                         chair[cmd[cmdIndex].x] = new Chair(cmd[cmdIndex].name, cmd[cmdIndex].eatCount);
                     } 
                 } 
+                // 스시 먹기, 떠나기
                 for(int x=0; x<L; x++) {
                     if(chair[x] != null) {
                         while(true) {
@@ -100,6 +100,7 @@ public class Main {
                         }
                     }
                 }
+                // 사진 찍기
                 if(cmd[cmdIndex].t == currT && cmd[cmdIndex].code == 300) {
 
                     int peopleSum = 0;
@@ -110,11 +111,9 @@ public class Main {
                     }
                     System.out.print(peopleSum + " " + sushiSum);
                     System.out.println();
-
                 }
                 
             
-     
             // 시간 증가
             if(cmd[cmdIndex].t == currT) {cmdIndex++;}
             currT++;
