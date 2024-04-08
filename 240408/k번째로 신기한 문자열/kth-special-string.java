@@ -11,11 +11,11 @@ public class Main {
         String[] s = new String[n];
         
         for(int i=0; i<n; i++) {
-            String temp = sc.nextLine();
+            String temp = sc.next();
             if(temp.startsWith(str)) {
                 s[i] = temp;
             } else {
-                s[i] = "zzzzzzzzzz";
+                s[i] = "가나다";
             }
         }
         
