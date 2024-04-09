@@ -27,7 +27,7 @@ public class Main {
                     if(keepNum == matrix[i][j]) {
                         rowNum2 = i;
                     } else {
-                        if(rowNum2-rowNum1 + 1 >= M) {
+                        if(keepNum >0 && rowNum2-rowNum1 + 1 >= M) {
                             for(int row=rowNum1; row<=rowNum2; row++) {
                                 matrix[row][j] = 0;
                             }
@@ -35,7 +35,7 @@ public class Main {
                         keepNum = matrix[i][j];
                         rowNum1 = i;
                     }
-                    if(i == N-1 && rowNum2-rowNum1 + 1 >= M) {
+                    if(keepNum >0 && i == N-1 && rowNum2-rowNum1 + 1 >= M) {
                         for(int row=rowNum1; row<=rowNum2; row++) {
                                 matrix[row][j] = 0;
                         }
@@ -79,7 +79,10 @@ public class Main {
             }
             turn++;
         }
-        for(int j=0; j<N; j++) {
+        boolean remained = true;
+        while(remained) {
+            boolean bomb = false;
+            for(int j=0; j<N; j++) {
                 int rowNum1 = 0;
                 int rowNum2 = 0;
                 int keepNum = matrix[0][j];
@@ -87,7 +90,8 @@ public class Main {
                     if(keepNum == matrix[i][j]) {
                         rowNum2 = i;
                     } else {
-                        if(rowNum2-rowNum1 + 1 >= M) {
+                        if(keepNum >0 && rowNum2-rowNum1 + 1 >= M) {
+                            bomb = true;
                             for(int row=rowNum1; row<=rowNum2; row++) {
                                 matrix[row][j] = 0;
                             }
@@ -95,9 +99,10 @@ public class Main {
                         keepNum = matrix[i][j];
                         rowNum1 = i;
                     }
-                    if(i == N-1 && rowNum2-rowNum1 + 1 >= M) {
+                    if(keepNum > 0 && i == N-1 && rowNum2-rowNum1 + 1 >= M) {
+                        bomb = true;
                         for(int row=rowNum1; row<=rowNum2; row++) {
-                                matrix[row][j] = 0;
+                            matrix[row][j] = 0;
                         }
                     }
                 }
@@ -118,6 +123,11 @@ public class Main {
                 for(int j=0; j<N; j++)
                     matrix[i][j] = temp[i][j];
 
+            remained = bomb;
+        }
+
+
+
         int count = 0;
         for(int i=0; i<N; i++) {
             for(int j=0; j<N; j++) {
@@ -125,5 +135,12 @@ public class Main {
             }
         }
         System.out.print(count);
+
+        // for(int i=0; i<N; i++) {
+        //     for(int j=0; j<N; j++) {
+        //         System.out.print(matrix[i][j] + " ");
+        //     }
+        //     System.out.println();
+        // }
     }
 }
