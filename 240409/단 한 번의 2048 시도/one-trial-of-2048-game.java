@@ -16,10 +16,13 @@ public class Main {
         if(cmd == 'R') {
             for(int i=0; i<4; i++) {
                 for(int j=4-1; j>0; j--) {
-                    // 댕기기
                     if(matrix[i][j] == 0) {
-                        matrix[i][j] = matrix[i][j-1];
-                        matrix[i][j-1] = 0;
+                        for(int k=j-1; k>=0; k--) {
+                            if(matrix[i][k] != 0) {
+                                matrix[i][j] = matrix[i][k];
+                                matrix[i][k] = 0;
+                            }
+                        }
                     }
                 }
                 for(int j=3; j>0; j--) {
@@ -30,10 +33,13 @@ public class Main {
                     }
                 }
                 for(int j=4-1; j>0; j--) {
-                    // 댕기기
                     if(matrix[i][j] == 0) {
-                        matrix[i][j] = matrix[i][j-1];
-                        matrix[i][j-1] = 0;
+                        for(int k=j-1; k>=0; k--) {
+                            if(matrix[i][k] != 0) {
+                                matrix[i][j] = matrix[i][k];
+                                matrix[i][k] = 0;
+                            }
+                        }
                     }
                 }
             }
