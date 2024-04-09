@@ -21,6 +21,7 @@ public class Main {
                             if(matrix[i][k] != 0) {
                                 matrix[i][j] = matrix[i][k];
                                 matrix[i][k] = 0;
+                                break;
                             }
                         }
                     }
@@ -38,6 +39,7 @@ public class Main {
                             if(matrix[i][k] != 0) {
                                 matrix[i][j] = matrix[i][k];
                                 matrix[i][k] = 0;
+                                break;
                             }
                         }
                     }
