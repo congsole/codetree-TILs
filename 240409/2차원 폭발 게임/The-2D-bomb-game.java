@@ -23,7 +23,7 @@ public class Main {
                 int rowNum1 = 0;
                 int rowNum2 = 0;
                 int keepNum = matrix[0][j];
-                for(int i=1; i<N; i++) {
+                for(int i=0; i<N; i++) {
                     if(keepNum == matrix[i][j]) {
                         rowNum2 = i;
                     } else {
