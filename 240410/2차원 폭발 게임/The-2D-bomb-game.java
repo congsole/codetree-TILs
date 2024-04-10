@@ -97,19 +97,19 @@ public class Main {
 
         pangpang();
 
-        // int count = 0;
-        // for(int i=0; i<N; i++) {
-        //     for(int j=0; j<N; j++) {
-        //         if(matrix[i][j] != 0) count++;
-        //     }
-        // }
-        // System.out.print(count);
-
+        int count = 0;
         for(int i=0; i<N; i++) {
             for(int j=0; j<N; j++) {
-                System.out.print(matrix[i][j] + " ");
+                if(matrix[i][j] != 0) count++;
             }
-            System.out.println();
         }
+        System.out.print(count);
+
+        // for(int i=0; i<N; i++) {
+        //     for(int j=0; j<N; j++) {
+        //         System.out.print(matrix[i][j] + " ");
+        //     }
+        //     System.out.println();
+        // }
     }
 }
