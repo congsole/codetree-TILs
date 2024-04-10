@@ -29,7 +29,6 @@ public class Main {
             int pay = 0;
             int count = 0;
             for(int j=0; j<N; j++) {
-                int initialPay = pay;
                 if(i == j) {
                     pay = pay + list.get(j).price/2 + list.get(j).deli;
                 } else {
@@ -37,8 +36,6 @@ public class Main {
                 }
                 if(pay <= B) {
                     count++;
-                } else {
-                    pay = initialPay;
                 }
             }
             maxCount = Math.max(maxCount, count);
