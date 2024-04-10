@@ -14,18 +14,21 @@ public class Main {
             a[i] = sc.nextInt();
             aMin = Math.min(aMin, a[i]);
             aMax = Math.max(aMax, a[i]);
-        }
+        }   
+        // System.out.println(aMin + " " + aMax);
 
-        int count = 0;
+        int maxCount = 0;
         for(int k=aMin+1; k<aMax; k++) {
+        int count = 0;
             for(int i=0; i<n; i++) {
                 for(int j=i+1; j<n; j++) {
-                    if(a[j]-k == k-a[i]) count++;
+                    if(((a[i] < k && k < a[j]) || (a[i] > k && k > a[j])) && a[j]-k == k-a[i]) count++;
                 }
             }
+            maxCount = Math.max(count, maxCount);
         }
 
-        System.out.print(count);
+        System.out.print(maxCount);
         
     }
 }
