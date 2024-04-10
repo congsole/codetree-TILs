@@ -18,7 +18,7 @@ public class Main {
             list.add(new Point(sc.nextInt(), sc.nextInt()));
         }
 
-        int min = 97*97;
+        int min = 40000*40000;
         for(int i=0; i<N; i++) {
             List<Point> tempList = new ArrayList<>();
             for(int j=0; j<N; j++) {
