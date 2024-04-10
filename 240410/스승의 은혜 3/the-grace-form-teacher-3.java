@@ -22,7 +22,7 @@ public class Main {
         for(int i=0; i<N; i++)
             list.add(new Gift(sc.nextInt(), sc.nextInt()));
 
-        // Collections.sort(list, (a, b) -> a.sum - b.sum);
+        Collections.sort(list, (a, b) -> a.sum - b.sum);
 
         int maxCount = 0;
         for(int i=0; i<N; i++) {
