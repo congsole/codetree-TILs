@@ -51,9 +51,10 @@ public class Main {
                 }
             }
         }
+
         int maxPillCount = 0;
         for(int i=1; i<=M; i++) {
-            if(sickCheeseList.get(i) > 0) {
+            if(sickCheeseList.get(i) >= S) {
                 Set<Integer> pillList = new HashSet<>();
                 for(int j=0; j<D; j++) {
                     if(eatList.get(j).cheese == i) {
