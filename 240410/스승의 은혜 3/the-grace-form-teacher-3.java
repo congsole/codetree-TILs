@@ -22,23 +22,18 @@ public class Main {
         for(int i=0; i<N; i++)
             list.add(new Gift(sc.nextInt(), sc.nextInt()));
 
-        Collections.sort(list, (a, b) -> a.sum - b.sum);
+        // Collections.sort(list, (a, b) -> a.sum - b.sum);
 
         int maxCount = 0;
         for(int i=0; i<N; i++) {
-            int pay = 0;
-            int count = 0;
+            int pay = list.get(i).price/2 + list.get(i).deli;
+            int count = 1;
             for(int j=0; j<N; j++) {
-                int initialPay = pay;
-                if(i == j) {
-                    pay = pay + list.get(j).price/2 + list.get(j).deli;
-                } else {
-                    pay = pay + list.get(j).sum;
-                }
-                if(pay <= B) {
+                if(i == j) continue;
+                int nextPay = pay + list.get(j).sum;
+                if(nextPay <= B) {
+                    pay = nextPay;
                     count++;
-                } else {
-                    pay = initialPay;
                 }
             }
             maxCount = Math.max(maxCount, count);
