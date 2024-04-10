@@ -13,10 +13,10 @@ public class Main {
         }
         
         int maxNum = -1;
-        for(int i=0; i<N-K; i++) {
-            for(int j=i+1; j<=i+K; j++) {
-                if(a[i] == a[j]) {
-                    maxNum = a[i];
+        for(int i=0; i<N; i++) {
+            for(int j=i+1; j<N; j++) {
+                if(a[i] == a[j] && j-i <= K) {
+                    maxNum = Math.max(a[i], maxNum);
                 }
             }
         }
