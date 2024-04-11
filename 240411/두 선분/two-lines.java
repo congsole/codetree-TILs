@@ -9,11 +9,16 @@ public class Main {
         x3 = sc.nextInt(); // [x3, x4]
         x4 = sc.nextInt();
 
+        /*
         if(x2 < x3 || x4 < x1) {
             System.out.print("nonintersecting");
         } else {
             System.out.print("intersecting");
         }
+        */
+
+        if((x3 <= x1 && x1 <= x4) || (x3 <= x2 && x2 <= x4)) System.out.print("intersecting");
+        else System.out.print("intersecting");
 
     }
 }
