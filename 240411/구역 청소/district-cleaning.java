@@ -10,18 +10,24 @@ public class Main {
         d = sc.nextInt();
 
         int area = 0;
+        // if(b < c || d < a) {
+        //     area = (b-a) + (d-c);
+        // } else if(a<c && d<b) {
+        //     area = (b-a);
+        // } else if(c<a && b<d) {
+        //     area = (d-c);
+        // } else if(a==c && b==d) {
+        //     area = (d-c);
+        // } else if(a<c) {
+        //     area = (b-a) + (d-c) - (b-c);
+        // } else if(c<a) {
+        //     area = (b-a) + (d-c) - (d-a);
+        // }
+
         if(b < c || d < a) {
             area = (b-a) + (d-c);
-        } else if(a<c && d<b) {
-            area = (b-a);
-        } else if(c<a && b<d) {
-            area = (d-c);
-        } else if(a==c && b==d) {
-            area = (d-c);
-        } else if(a<c) {
-            area = (b-a) + (d-c) - (b-c);
-        } else if(c<a) {
-            area = (b-a) + (d-c) - (d-a);
+        } else {
+            area = Math.max(b, d) - Math.min(a, c);
         }
         System.out.print(area);
     }
