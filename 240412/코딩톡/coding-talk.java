@@ -33,11 +33,11 @@ public class Main {
             } else {
                 for(int j=i; j<=m; j++) {
                     msg[i].set.remove(msg[j].sender);
+                    if(msg[i].unread == msg[j].unread) {
+                        msg[i].set.remove(msg[j].sender);
+                        msg[j].set.remove(msg[i].sender);
+                    }
                 }
-            }
-            if(i>1 && msg[i].unread == msg[i-1].unread) {
-                msg[i].set.remove(msg[i-1].sender);
-                msg[i-1].set.remove(msg[i].sender);
             }
 
         }
