@@ -36,7 +36,8 @@ public class Main {
                     if(msg[i].unread == msg[j].unread) {
                         msg[i].set.remove(msg[j].sender);
                         msg[j].set.remove(msg[i].sender);
-                    }
+                    } // p번째 메세지를 읽은 사람의 수와 그 이후에 나온 한 메세지를 읽은 사람의 수가 같다면
+                      // 서로가 서로의 메세지를 읽은 것이다.
                 }
             }
 
