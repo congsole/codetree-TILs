@@ -11,18 +11,26 @@ public class Main {
         for(int i=0; i<N; i++) {
             bomb[i] = sc.nextInt();
         }
-
-        int maxCount = 0;
         int num = 0;
+        int maxCount = 0;
         for(int i=0; i<N; i++) {
-            int count = 1;
-            for(int j=i+1; j<=i+K; j++) {
-                if(j < N && bomb[i] == bomb[j]) count++;
+            int keepNum = bomb[i];
+            int bombCount = 1;
+            for(int j=0; j<N; j++) {
+                if(keepNum != bomb[j]) continue;
+                for(int k=j+1; k<N; k++) {
+                    if(keepNum != bomb[k]) continue;
+                    if(k-j <= K) bombCount++;    
+                }
             }
-            maxCount = Math.max(maxCount, count);
-            if(maxCount == count) num = bomb[i];
-        }
+            if (bombCount == 1) bombCount = 0;
+            maxCount = Math.max(maxCount, bombCount);
+            if(maxCount == bombCount) num = Math.max(keepNum, num);
+        }   
+
         System.out.print(num);
 
+        
+    
     }
 }
