@@ -36,24 +36,25 @@ public class Main {
                         continue loop2;
                     }
                 }
+                int numofi = 0, numofj = 0;
                 for(int k=0; k<3; k++) {
-                    int numofi = 0, numofj = 0;
                     if(a[k][k] == i) numofi++;
-                    if(a[k][k] == j) numofj++;
-                    if(numofi > 0 && numofj > 0 && numofi + numofj == 3) {
-                        count++;
-                        continue loop2;
-                    }
+                    if(a[k][k] == j) numofj++;    
                 }
+                if(numofi > 0 && numofj > 0 && numofi + numofj == 3) {
+                    count++;
+                    continue loop2;
+                }
+                numofi = 0; numofj = 0;
                 for(int k=0; k<3; k++) {
-                    int numofi = 0, numofj = 0;
                     if(a[k][3-k-1] == i) numofi++;
                     if(a[k][3-k-1] == j) numofj++;
-                    if(numofi > 0 && numofj > 0 && numofi + numofj == 3) {
+                    
+                }
+                if(numofi > 0 && numofj > 0 && numofi + numofj == 3) {
                         count++;
                         continue loop2;
                     }
-                }
 
             }
         }
