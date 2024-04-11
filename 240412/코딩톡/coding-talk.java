@@ -35,6 +35,10 @@ public class Main {
                     msg[i].set.remove(msg[j].sender);
                 }
             }
+            if(i>1 && msg[i].unread == msg[i-1].unread) {
+                msg[i].set.remove(msg[i-1].sender);
+                msg[i-1].set.remove(msg[i].sender);
+            }
 
         }
         
