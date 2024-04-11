@@ -18,7 +18,7 @@ public class Main {
         */
 
         if((x3 <= x1 && x1 <= x4) || (x3 <= x2 && x2 <= x4)) System.out.print("intersecting");
-        else System.out.print("intersecting");
+        else System.out.print("nonintersecting");
 
     }
 }
