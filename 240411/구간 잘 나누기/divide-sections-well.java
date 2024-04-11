@@ -35,10 +35,12 @@ public class Main {
             }
             //section을 m개 이하의 구간으로 나눴을 경우 최대합이 A였다면,
             // section을 m개의 구간으로 나눴을때도 최대합이 A 이하임을 수학적으로 증명할 수 있습니다.
-            if(possible && section <= m) {  
-                minOfMaxSum = Math.min(minOfMaxSum, maxSum);
+            if(possible && section <= m) {
+                System.out.print(maxSum);
+                return;  
+                // minOfMaxSum = Math.min(minOfMaxSum, maxSum);
             }   
         }
-        System.out.print(minOfMaxSum);
+        // System.out.print(minOfMaxSum);
     }
 }
