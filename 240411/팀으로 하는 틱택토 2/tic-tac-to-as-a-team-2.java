@@ -15,49 +15,46 @@ public class Main {
         for(int i=1; i<10; i++) {
             loop2: for(int j=i+1; j<10; j++) {
                 for(int k=0; k<3; k++) {
-                    if((i == a[k][0] && i == a[k][1] && j == a[k][2])
-                        || (i == a[k][0] && j == a[k][1] && i == a[k][2])
-                        || (j == a[k][0] && i == a[k][1] && i == a[k][2])
-                        || (i == a[k][0] && j == a[k][1] && j == a[k][2])
-                        || (j == a[k][0] && i == a[k][1] && j == a[k][2])
-                        || (j == a[k][0] && j == a[k][1] && i == a[k][2])
-                        ) {
-                            count++;
-                            break loop2;
+                    int numofi = 0, numofj = 0;
+                    for(int l=0; l<3; l++) {
+                        if(a[k][l] == i) numofi++;
+                        if(a[k][l] == j) numofj++;
+                    }
+                    if(numofi > 0 && numofj > 0 && numofi + numofj == 3) {
+                        count++;
+                        continue loop2;
                     }
                 }
                 for(int k=0; k<3; k++) {
-                    if((i == a[0][k] && i == a[1][k] && j == a[2][k])
-                        || (i == a[0][k] && j == a[1][k] && i == a[2][k])
-                        || (j == a[0][k] && i == a[1][k] && i == a[2][k])
-                        || (i == a[0][k] && j == a[1][k] && j == a[2][k])
-                        || (j == a[0][k] && i == a[1][k] && j == a[2][k])
-                        || (j == a[0][k] && j == a[1][k] && i == a[2][k])
-                        ) {
-                            count++;
-                            break loop2;
+                    int numofi = 0, numofj = 0;
+                    for(int l=0; l<3; l++) {
+                        if(a[l][k] == i) numofi++;
+                        if(a[l][k] == j) numofj++;
+                    }
+                    if(numofi > 0 && numofj > 0 && numofi + numofj == 3) {
+                        count++;
+                        continue loop2;
                     }
                 }
-                if((i == a[0][0] && i == a[1][1] && j == a[2][2])
-                        || (i == a[0][0] && j == a[1][1] && i == a[2][2])
-                        || (j == a[0][0] && i == a[1][1] && i == a[2][2])
-                        || (i == a[0][0] && j == a[1][1] && j == a[2][2])
-                        || (j == a[0][0] && i == a[1][1] && j == a[2][2])
-                        || (j == a[0][0] && j == a[1][1] && i == a[2][2])
-                        ) {
-                            count++;
-                            break loop2;
+                for(int k=0; k<3; k++) {
+                    int numofi = 0, numofj = 0;
+                    if(a[k][k] == i) numofi++;
+                    if(a[k][k] == j) numofj++;
+                    if(numofi > 0 && numofj > 0 && numofi + numofj == 3) {
+                        count++;
+                        continue loop2;
                     }
-                if((i == a[0][2] && i == a[1][1] && j == a[2][0])
-                        || (i == a[0][2] && j == a[1][1] && i == a[2][0])
-                        || (j == a[0][2] && i == a[1][1] && i == a[2][0])
-                        || (i == a[0][2] && j == a[1][1] && j == a[2][0])
-                        || (j == a[0][2] && i == a[1][1] && j == a[2][0])
-                        || (j == a[0][2] && j == a[1][1] && i == a[2][0])
-                        ) {
-                            count++;
-                            break loop2;
+                }
+                for(int k=0; k<3; k++) {
+                    int numofi = 0, numofj = 0;
+                    if(a[k][3-k-1] == i) numofi++;
+                    if(a[k][3-k-1] == j) numofj++;
+                    if(numofi > 0 && numofj > 0 && numofi + numofj == 3) {
+                        count++;
+                        continue loop2;
                     }
+                }
+
             }
         }
         System.out.print(count);       
