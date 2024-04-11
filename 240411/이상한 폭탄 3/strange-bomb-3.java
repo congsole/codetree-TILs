@@ -23,7 +23,7 @@ public class Main {
                     if(k-j <= K) bombCount++;    
                 }
             }
-            if (bombCount == 1) bombCount = 0;
+            if (bombCount == 1) bombCount = -1;
             maxCount = Math.max(maxCount, bombCount);
             if(maxCount == bombCount) num = Math.max(keepNum, num);
         }   
