@@ -28,7 +28,7 @@ public class Main {
         }
 
         for(int i=1; i<=m; i++) {
-            if(msg[i].set.size() == 0) {
+            if(msg[i].unread == 0) {
                 msg[i].set = new HashSet<>();
             } else {
                 for(int j=i; j<=m; j++) {
