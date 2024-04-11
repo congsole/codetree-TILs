@@ -8,18 +8,20 @@ public class Main {
         int i=0; 
         if(arr[0] <= arr[maxI]) {
             while(true) {
-                if(i + 1 < n && arr[i+1] <= arr[maxI]) {
-                    i = i + 1;
-                } else if(i + 2 < n && arr[i+2] <= arr[maxI]) {
-                    i = i + 2;
-                } else {
-                    return false;
+                for(int j=i+1; j<=i+k; j++) {
+                    if(j < n && arr[j] <= arr[maxI]) {
+                        i=j;
+                        break;
+                    } else if(j == n-1 || j == i+k) {
+                        return false;
+                    }
                 }
-
                 if(i == n-1) {
                     return true;
                 }
             }
+
+
         } else {
             return false;
         }
