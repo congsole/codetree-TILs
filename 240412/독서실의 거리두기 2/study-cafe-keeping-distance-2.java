@@ -19,6 +19,15 @@ public class Main {
             }
         }
         
+        int startD = 0;
+        if(a[0] == '0') {
+            for(int i=1; i<n;i++) {
+                if(a[i] == '1') {
+                    startD = i - 0;
+                    break;
+                }
+            }
+        }
         int endD = 0;
         if(a[n-1] == '0') {
             for(int i=n-2; i>=0;i--) {
@@ -30,6 +39,6 @@ public class Main {
         }
 
         Collections.sort(list, (a,b) -> b - a);
-        System.out.print(Math.min(Math.max(list.get(0)/2, endD), list.get(list.size()-1)));
+        System.out.print(Math.min(Math.max(Math.max(list.get(0)/2, endD), startD), list.get(list.size()-1)));
     }
 }
