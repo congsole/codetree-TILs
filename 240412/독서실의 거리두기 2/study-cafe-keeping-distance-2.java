@@ -10,35 +10,48 @@ public class Main {
         String str = sc.next();
         a = str.toCharArray();
 
-        loop1: for(int i=0; i<n; i++) {
-            for(int j=i+1; j<n; j++) {
-                if(a[i] == '1' && a[j] == '1') {
-                    list.add(j-i);
-                    continue loop1;
-                }
-            }
-        }
-        
-        int startD = 0;
+        int maxOfMinD = 0;
         if(a[0] == '0') {
-            for(int i=1; i<n;i++) {
-                if(a[i] == '1') {
-                    startD = i - 0;
-                    break;
+            a[0] = '1';
+            int minD = n;
+            loop1: for(int i=0; i<n; i++) {
+                for(int j=i+1; j<n; j++) {
+                    if(a[i] == '1' && a[j] == '1') {
+                        minD = Math.min(minD, j-i);
+                        continue loop1;
+                    }
                 }
             }
-        }
-        int endD = 0;
-        if(a[n-1] == '0') {
-            for(int i=n-2; i>=0;i--) {
-                if(a[i] == '1') {
-                    endD = n-1 - i;
-                    break;
+            a[0] = '0';
+            maxOfMinD = Math.max(maxOfMinD, minD);
+        } else if(a[n-1] == '0') {
+            a[n-1] = '1';
+            int minD = n;
+            loop1: for(int i=0; i<n; i++) {
+                for(int j=i+1; j<n; j++) {
+                    if(a[i] == '1' && a[j] == '1') {
+                        minD = Math.min(minD, j-i);
+                        continue loop1;
+                    }
                 }
             }
+            a[n-1] = '0';
+            maxOfMinD = Math.max(maxOfMinD, minD);
+        } else {
+
+            loop1: for(int i=0; i<n; i++) {
+                for(int j=i+1; j<n; j++) {
+                    if(a[i] == '1' && a[j] == '1') {
+                        list.add(j-i);
+                        continue loop1;
+                    }
+                }
+            }
+            Collections.sort(list);
+            int minD = Math.min(list.get(0), list.get(list.size()-1)/2);
+            maxOfMinD = Math.max(maxOfMinD, minD);
         }
 
-        Collections.sort(list, (a,b) -> b - a);
-        System.out.print(Math.min(Math.max(Math.max(list.get(0)/2, endD), startD), list.get(list.size()-1)));
+        System.out.print(maxOfMinD);
     }
 }
