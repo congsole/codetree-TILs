@@ -7,7 +7,11 @@ public class Main {
         for(int i=0; i<3; i++) {
             a[i] = sc.nextInt();
         }
-
+        
+        if(a[2] - a[1] == 1 && a[1] - a[0] == 1) {
+            System.out.print(0);
+            return;
+        }
         int count = 0;
         while(true) {
             
