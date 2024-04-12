@@ -24,7 +24,8 @@ public class Main {
             }
             a[0] = '0';
             maxOfMinD = Math.max(maxOfMinD, minD);
-        } else if(a[n-1] == '0') {
+        }
+        if(a[n-1] == '0') {
             a[n-1] = '1';
             int minD = n;
             loop1: for(int i=0; i<n; i++) {
@@ -37,20 +38,23 @@ public class Main {
             }
             a[n-1] = '0';
             maxOfMinD = Math.max(maxOfMinD, minD);
-        } else {
+        }
 
-            loop1: for(int i=0; i<n; i++) {
-                for(int j=i+1; j<n; j++) {
-                    if(a[i] == '1' && a[j] == '1') {
-                        list.add(j-i);
-                        continue loop1;
-                    }
+        loop1: for(int i=0; i<n; i++) {
+            for(int j=i+1; j<n; j++) {
+                if(a[i] == '1' && a[j] == '1') {
+                    list.add(j-i);
+                    continue loop1;
                 }
             }
+        }
+        if(list.size() > 0) {
             Collections.sort(list);
             int minD = Math.min(list.get(0), list.get(list.size()-1)/2);
             maxOfMinD = Math.max(maxOfMinD, minD);
+
         }
+        
 
         System.out.print(maxOfMinD);
     }
