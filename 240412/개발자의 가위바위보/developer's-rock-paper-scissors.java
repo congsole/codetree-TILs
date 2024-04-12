@@ -7,7 +7,7 @@ class Game {
         this.y = y;
     }
 }
-
+// 가위바위보는 하나가 나머지 두 개 중 하나를 무조건 이김. 따라서 두 가지 경우밖에 나오지 않는다는 해설이 맞다.
 public class Main {
     public static List<Map<Integer, String>> list = new ArrayList<>();
     public static Game[] g;
