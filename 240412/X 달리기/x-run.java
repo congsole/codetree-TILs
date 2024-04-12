@@ -6,26 +6,37 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         x = sc.nextInt();
 
-        int minT = x;
-        for(int tSet=1; tSet<=x; tSet++) {
-            int v = 1;
-            int t = 0;
-            int distance = 0;
-            while(distance < x) {
-                distance += v;
-                t++;
-                if(t < tSet) {
-                    v++;
-                } else {
-                    if(v>1) v--;
+        int minT = 1000;
+        for(int vMax=1; vMax<=x; vMax++) {
+            for(int tU=1; tU<=x; tU++) {
+                int t=0;
+                int v=1;
+                int distance=0;
+                int vMaxT = vMax-v;
+                while(true) {
+                    if(t < vMaxT) {
+                        distance += v;
+                        t++;
+                        v++;
+                    } else if(t >= vMaxT && t < vMaxT + tU) {
+                        distance += vMax*tU;
+                        t += tU;
+                        if(v>1) v--;
+                    } else {
+                        distance += v;
+                        t++;
+                        if(v>1) v--;
+                    }
+                    if(distance >= x) {
+                        break;
+                    }
                 }
-        
-            // System.out.println(distance + " " + t + " " + v);
-            }
-            if(distance == x && v == 1) {
-                minT = Math.min(minT, t);
-            }
+                // System.out.println(vMax + " " + tU + " " + t + " " + distance + " " + v);
+                if(distance == x && v == 1) {
+                    minT = Math.min(minT, t);
+                }
+            }   
         }
-            System.out.print(minT);
+        System.out.print(minT);
     }
 }
