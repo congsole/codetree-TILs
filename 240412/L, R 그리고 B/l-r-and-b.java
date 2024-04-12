@@ -25,9 +25,17 @@ public class Main {
 
         int distance = 0;
         if(br == rr && rr == lr) {
-            distance = Math.abs(bc - lc) + 1;
+            if((br < rr && rr < lr) || (br > rr && rr > lr)) {
+                distance = Math.abs(bc - lc) + 1;
+            } else {
+                distance = Math.abs(bc - lc) - 1;
+            }
         } else if(bc == rc && rc == lc) {
-            distance = Math.abs(br - lr) + 1;
+            if((bc < rc && rc < lc) || (bc > rc && rc > lc)) {
+                distance = Math.abs(br - lr) + 1;
+            } else {
+                distance = Math.abs(br - lr) - 1;
+            }
         } else {
             distance = Math.abs(br - lr) + Math.abs(bc - lc) - 1;
         }
