@@ -19,7 +19,7 @@ public class Main {
             }
         }
         Collections.sort(dList, (a, b) -> b-a);
-        System.out.print(dList.get(0)/2);
+        System.out.print(Math.min(dList.get(0)/2, dList.get(dList.size()-1)));
 
         
     }
