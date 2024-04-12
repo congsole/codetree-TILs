@@ -10,7 +10,7 @@ public class Main {
         String str = sc.next();
         a = str.toCharArray();
 
-        int maxOfMinD = 0;
+        int maxOfMinD = 1;
         if(a[0] == '0') {
             a[0] = '1';
             int minD = n;
