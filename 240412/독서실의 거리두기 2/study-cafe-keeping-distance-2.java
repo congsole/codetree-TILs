@@ -18,8 +18,18 @@ public class Main {
                 }
             }
         }
+        
+        int endD = 0;
+        if(a[n-1] == '0') {
+            for(int i=n-2; i>=0;i--) {
+                if(a[i] == '1') {
+                    endD = n-1 - i;
+                    break;
+                }
+            }
+        }
 
         Collections.sort(list, (a,b) -> b - a);
-        System.out.print(Math.min(list.get(0)/2, list.get(list.size()-1)));
+        System.out.print(Math.max(Math.min(list.get(0)/2, list.get(list.size()-1)), endD));
     }
 }
