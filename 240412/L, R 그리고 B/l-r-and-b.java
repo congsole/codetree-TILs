@@ -25,13 +25,13 @@ public class Main {
 
         int distance = 0;
         if(br == rr && rr == lr) {
-            if((br < rr && rr < lr) || (br > rr && rr > lr)) {
+            if((bc < rc && rc < lc) || (bc > rc && rc > lc)) {
                 distance = Math.abs(bc - lc) + 1;
             } else {
                 distance = Math.abs(bc - lc) - 1;
             }
         } else if(bc == rc && rc == lc) {
-            if((bc < rc && rc < lc) || (bc > rc && rc > lc)) {
+            if((br < rr && rr < lr) || (br > rr && rr > lr)) {
                 distance = Math.abs(br - lr) + 1;
             } else {
                 distance = Math.abs(br - lr) - 1;
