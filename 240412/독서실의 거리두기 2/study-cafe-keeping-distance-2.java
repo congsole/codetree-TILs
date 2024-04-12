@@ -30,6 +30,6 @@ public class Main {
         }
 
         Collections.sort(list, (a,b) -> b - a);
-        System.out.print(Math.max(Math.min(list.get(0)/2, list.get(list.size()-1)), endD));
+        System.out.print(Math.min(Math.max(list.get(0)/2, endD), list.get(list.size()-1)));
     }
 }
