@@ -28,25 +28,26 @@ public class Main {
                     bSize -= 2;
                 }
                 if(bSize == 0 && aSize > 0) {
-                    System.out.print(turn);
+                    System.out.print(turn+1);
                     return;
                 } else if(bSize == 2 && aSize == 0) {
-                    System.out.print(turn);
+                    System.out.print(turn+1);
                     return;
                 }
                 
             } else {
                 bSize--;
                 if(aSize == 0 && bSize == 1) {
-                    System.out.print(turn-1);
+                    System.out.print(turn-1+1);
                     return;
                 }
             }
 
             if(aSize == 0 && bSize == 0) {
-                System.out.print(turn);
+                System.out.print(turn+1);
                 return;
             }
+            turn++;
         }
     }   
 }
