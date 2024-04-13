@@ -14,7 +14,7 @@ public class Main {
         b2 = sc.nextInt();
 
         int w = Math.max(x2, a2) - Math.min(x1, a1);
-        int h = Math.max(y2, b2) - Math.min(y1, b2);
+        int h = Math.max(y2, b2) - Math.min(y1, b1);
         int side = Math.max(w, h);
 
         System.out.print(side*side);
