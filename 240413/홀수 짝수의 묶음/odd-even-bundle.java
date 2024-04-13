@@ -31,6 +31,10 @@ public class Main {
                     System.out.print(turn -1);
                     return;
                 }
+                if(bSize == 0 && aSize == 2) {
+                    System.out.print(turn);
+                    return;
+                }
             } else {
                 bSize--;
             }
