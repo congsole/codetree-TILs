@@ -36,5 +36,6 @@ public class Main {
             }
             turn++;
         }
+        System.out.print(turn);
     }   
 }
