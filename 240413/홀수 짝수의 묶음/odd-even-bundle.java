@@ -27,19 +27,26 @@ public class Main {
                 } else {
                     bSize -= 2;
                 }
-                if(bSize == -1) {
-                    System.out.print(turn -1);
+                if(bSize == 0 && aSize > 0) {
+                    System.out.print(turn);
                     return;
-                }
-                if(bSize == 0 && aSize == 2) {
+                } else if(bSize == 2 && aSize == 0) {
                     System.out.print(turn);
                     return;
                 }
+                
             } else {
                 bSize--;
+                if(aSize == 0 && bSize == 1) {
+                    System.out.print(turn-1);
+                    return;
+                }
             }
-            turn++;
+
+            if(aSize == 0 && bSize == 0) {
+                System.out.print(turn);
+                return;
+            }
         }
-        System.out.print(turn);
     }   
 }
